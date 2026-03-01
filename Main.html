@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>It's Férina Day 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0d0f0d;
+      --surface: #131613;
+      --surface-2: #191c19;
+      --border: #272b27;
+      --border-hover: #3a5437;
+      --green-pale: #1a2e19;
+      --green-light: #3a5437;
+      --green-mid: #6a9e65;
+      --green-deep: #8dc487;
+      --green-bright: #a8d4a2;
+      --black: #ffffff;
+      --charcoal: #e8ede8;
+      --gray: #8a958a;
+      --gray-light: #3a3f3a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 5% 0%, rgba(58,84,55,0.30) 0%, transparent 45%),
+        radial-gradient(ellipse at 95% 100%, rgba(40,65,37,0.22) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(30,50,28,0.15) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      animation: fadeDown 0.9s ease both;
+    }
+
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-light);
+      color: var(--green-bright);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      border: 1px solid var(--green-mid);
+    }
+
+    .header-tag .dot {
+      width: 6px; height: 6px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 9vw, 5.2rem);
+      color: var(--charcoal);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .header h1 em {
+      font-style: italic;
+      color: var(--green-deep);
+    }
+
+    .header .subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── HEARTS ─── */
+    .floating-heart {
+      font-size: 4.2rem;
+      display: inline-block;
+      animation: pulse 3.6s ease-in-out infinite;
+    }
+    .floating-heart.d1 { animation-delay: 0s; }
+    .floating-heart.d2 { animation-delay: 1.2s; }
+    .floating-heart.d3 { animation-delay: 2.4s; }
+
+    @keyframes pulse {
+      0%   { transform: scale(1);    filter: drop-shadow(0 0 4px rgba(106,158,101,0.2)); }
+      40%  { transform: scale(1.22); filter: drop-shadow(0 0 22px rgba(106,158,101,0.65)); }
+      60%  { transform: scale(1.16); filter: drop-shadow(0 0 16px rgba(106,158,101,0.45)); }
+      100% { transform: scale(1);    filter: drop-shadow(0 0 4px rgba(106,158,101,0.2)); }
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .deco-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 32px 36px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 24px rgba(0,0,0,0.35), 0 0 0 0px transparent;
+      animation: fadeUp 0.7s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--green-mid), var(--green-light));
+      border-radius: 12px 0 0 12px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-deep);
+      margin-bottom: 22px;
+    }
+
+    .section-label .num {
+      background: var(--green-light);
+      color: var(--green-bright);
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-size: 10px;
+      border: 1px solid var(--green-mid);
+    }
+
+    /* ─── SPOTIFY ─── */
+    .spotify-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .spotify-section .sub {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .spotify-wrapper {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    .spotify-wrapper iframe { display: block; width: 100%; border: none; }
+
+
+
+    /* ─── PHOTO ─── */
+
+
+    /* ─── LETTER ─── */
+    .letter-body {
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: var(--charcoal);
+      font-weight: 300;
+    }
+    .letter-body p { margin-bottom: 10px; }
+    .letter-body .sig {
+      margin-top: 22px;
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.9rem;
+      color: var(--green-deep);
+    }
+
+    /* ─── THANKFUL GRID ─── */
+    .love-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .love-card {
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 15px;
+      font-size: 0.86rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--charcoal);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .love-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--green-light);
+      box-shadow: 0 6px 18px rgba(58,107,53,0.2);
+    }
+
+    .love-card::before {
+      content: '🌿';
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ─── PARTING ─── */
+    .parting-section { text-align: center; }
+
+    .parting-section .parting-text {
+      font-size: 0.98rem;
+      line-height: 1.9;
+      font-weight: 300;
+      color: var(--charcoal);
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+
+    .closing-wrap {
+      display: inline-block;
+      border: 1.5px solid var(--green-light);
+      padding: 18px 40px;
+      border-radius: 4px;
+      background: var(--green-pale);
+    }
+
+    .parting-section .closing-script {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--green-bright);
+      line-height: 1.2;
+    }
+
+    .parting-section .closing-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-top: 6px;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer-hearts {
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 14px;
+      margin-top: 64px;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 520px) {
+      .love-grid { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 22px 20px 26px; }
+      .floating-heart { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-tag"><span class="dot"></span> It's Férina Day <span class="dot"></span></div>
+    <h1>Happy <em>Birthday</em></h1>
+    <p class="subtitle">
+      To my darling<br>
+      From your puppy
+    </p>
+  </div>
+
+  <div class="deco-row">
+    <span class="floating-heart d1">💚</span>
+    <span class="floating-heart d2">💚</span>
+    <span class="floating-heart d3">💚</span>
+  </div>
+
+  <!-- 00 — Spotify Playlist -->
+  <div class="section spotify-section" style="animation-delay:0.05s">
+    <div class="section-label"><span class="num">00</span> Our Playlist</div>
+    <h2>Songs that make me think of you</h2>
+    <p class="sub">Press play ♡</p>
+    <div class="spotify-wrapper">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/0DpSejD7gogGlTKJ1x2mVK?utm_source=generator&theme=0"
+        height="380"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- 01 — Read Me -->
+  <div class="section" style="animation-delay:0.15s">
+    <div class="section-label"><span class="num">01</span> Read me!</div>
+    <img src="IMG_20260301_224326_433.jpg" alt="photo" style="width:100%; max-width:380px; height:280px; object-fit:cover; display:block; margin:0 auto 24px; border-radius:8px;" />
+    <div class="letter-body">
+      <p>Thank you for being a light in my life. I made you this cute web card because I love you 💗</p>
+      <p class="sig">Ron</p>
+    </div>
+  </div>
+
+  <!-- 02 — Thankful -->
+  <div class="section" style="animation-delay:0.25s">
+    <div class="section-label"><span class="num">02</span> Things I'm thankful for</div>
+    <div class="love-grid">
+      <div class="love-card">I'm thankful for you</div>
+      <div class="love-card">I'm thankful for your smile</div>
+      <div class="love-card">I'm thankful for your kindness</div>
+      <div class="love-card">I'm thankful for your company</div>
+      <div class="love-card">I'm thankful for your strength</div>
+      <div class="love-card">I'm thankful for your support</div>
+      <div class="love-card">I'm thankful for your swag</div>
+      <div class="love-card">I'm thankful for your whimsy</div>
+    </div>
+  </div>
+
+  <!-- 03 — Parting Note -->
+  <div class="section parting-section" style="animation-delay:0.35s">
+    <div class="section-label"><span class="num">03</span> Parting note</div>
+    <p class="parting-text">
+      Have an amazing and blessed day, may your path continue to blossom with each of your footsteps 🌷
+    </p>
+    <div class="closing-wrap">
+      <div class="closing-script">It's Férina Day ✨</div>
+      <div class="closing-sub">with love · always</div>
+    </div>
+  </div>
+
+  <!-- Bottom hearts -->
+  <div class="deco-row" style="margin-top: 48px; margin-bottom: 0;">
+    <span class="floating-heart d2">💚</span>
+    <span class="floating-heart d3">💚</span>
+    <span class="floating-heart d1">💚</span>
+  </div>
+
+  <div class="footer-hearts">💚 💚 💚</div>
+
+</div>
+</body>
+</html>
